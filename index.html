@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Niewidzialne więzi — projekt MAESTRO-16</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Times New Roman", Times, serif;
+      color: #1f2937;
+      line-height: 1.6;
+      background: #ffffff;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1150px;
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .nav-container {
+      width: 90%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .logo {
+      font-weight: 800;
+      color: #12355b;
+      font-size: 1.15rem;
+      letter-spacing: 0.2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      font-size: 0.95rem;
+      color: #4b5563;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #365A8C;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: center;
+    }
+
+    .hero-inner {
+      width: 90%;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 80px 0 90px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 55px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+    .hero-logos img {
+      max-height: 150px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .badge {
+      display: inline-block;
+      color: #1d4ed8;
+      background: #dbeafe;
+      border: 1px solid #bfdbfe;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .hero h1 {
+    font-size: clamp(2.8rem, 6vw, 5.8rem);
+    line-height: 1;
+    color: #0f2f4f;
+    letter-spacing: -1.5px;
+    margin-bottom: 24px;
+}
+
+    .hero h2 {
+      font-size: clamp(1.25rem, 2vw, 1.8rem);
+      line-height: 1.35;
+      color: #1f6fb2;
+      font-weight: 500;
+      max-width: 850px;
+      margin-bottom: 28px;
+    }
+
+    .hero-lead {
+      font-size: 1.15rem;
+      color: #4b5563;
+      max-width: 760px;
+      margin-bottom: 38px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.98rem;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+    background: #355C8A;
+    color: white;
+    box-shadow: 0 10px 24px rgba(53, 92, 138, 0.22);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    background: #294A70;
+}
+
+    .btn-recruitment {
+      padding: 18px 44px;
+      font-size: 1.15rem;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .btn-secondary {
+      border: 1px solid #cbd5e1;
+      color: #1e3a5f;
+      background: white;
+    }
+
+    .btn-secondary:hover {
+      border-color: #365A8C;
+      color: #365A8C;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+      color: #64748b;
+      font-size: 0.98rem;
+    }
+
+    .hero-stat {
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid #dbeafe;
+    }
+
+    .hero-stat strong {
+      color: #12355b;
+    }
+
+    /* =========================
+       SEKCJE
+    ========================== */
+
+    .section {
+      padding: 120px 0;
+    }
+
+    .section-alt {
+      background: #f8fafc;
+      border-top: 1px solid #e5e7eb;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .section-title .eyebrow {
+      color: #365A8C;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-title h2 {
+      color: #12355b;
+      font-size: clamp(2rem, 3vw, 2.7rem);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .section-title p {
+      color: #64748b;
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .text-block p {
+      margin-bottom: 28px;
+      color: #4b5563;
+      font-size: 1.05rem;
+    }
+
+    .info-box {
+      background: white;
+      border: 1px solid #e0ecff;
+      border-left: 5px solid #365A8C;
+      border-radius: 22px;
+      padding: 32px;
+      box-shadow: 0 18px 45px rgba(15, 47, 79, 0.06);
+    }
+
+    .info-box h3 {
+      color: #12355b;
+      margin-bottom: 18px;
+      font-size: 1.3rem;
+    }
+
+    .info-box ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      color: #4b5563;
+    }
+
+    .info-box li {
+      padding-bottom: 12px;
+      border-bottom: 1px solid #eef2f7;
+    }
+
+    .info-box li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+/* ======== Harmonogram ======== */
+
+.method-schedule{
+
+    margin-top:80px;
+
+    text-align:center;
+}
+
+.method-schedule h3{
+
+    font-size:2rem;
+
+    color:#12355b;
+
+    margin-bottom:18px;
+}
+
+.schedule-description{
+
+    max-width:760px;
+
+    margin:0 auto 35px auto;
+
+    color:#64748b;
+}
+
+.method-schedule img{
+
+    width:100%;
+
+    max-width:980px;
+
+    border-radius:18px;
+
+    border:1px solid #d9e2ec;
+
+    box-shadow:0 18px 40px rgba(15,47,79,.08);
+}
+/* ======== Przebieg badania ======== */
+
+.study-flow {
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px,1fr));
+    gap: 18px;
+}
+
+.flow-step {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 22px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(15,47,79,.05);
+    position: relative;
+}
+
+.flow-step:not(:last-child)::after{
+    content:"➜";
+    position:absolute;
+    right:-18px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#365A8C;
+    font-size:30px;
+}
+
+.flow-icon{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.flow-step h4{
+    color:#12355b;
+    margin-bottom:8px;
+}
+
+.flow-step p{
+    color:#64748b;
+    font-size:.92rem;
+}
+
+@media(max-width:900px){
+
+.flow-step:not(:last-child)::after{
+display:none;
+}
+
+}
+
+    .card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 14px 40px rgba(15, 47, 79, 0.05);
+    }
+
+    .card-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #dbeafe;
+      color: #1d4ed8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      color: #12355b;
+      font-size: 1.18rem;
+      margin-bottom: 18px;
+    }
+
+    .card p {
+      color: #64748b;
+      font-size: 0.98rem;
+    }
+
+    .news-list {
+      display: grid;
+      gap: 18px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 24px;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 12px 35px rgba(15, 47, 79, 0.04);
+    }
+
+    .news-date {
+      color: #365A8C;
+      font-weight: 800;
+    }
+
+    .news-item h3 {
+      color: #12355b;
+      margin-bottom: 8px;
+    }
+
+    .news-item p {
+      color: #64748b;
+    }
+
+    .timeline {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #bfdbfe;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 62px;
+      margin-bottom: 34px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 0;
+      top: 3px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #365A8C;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      box-shadow: 0 8px 22px rgba(37,99,235,0.28);
+    }
+
+    .timeline-content {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .timeline-content h3 {
+      color: #12355b;
+      margin-bottom: 8px;
+    }
+
+    .timeline-content p {
+      color: #64748b;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .person {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 24px;
+      padding: 26px;
+      text-align: center;
+      box-shadow: 0 12px 35px rgba(15, 47, 79, 0.04);
+    }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      margin: 0 auto 18px auto;
+      background: linear-gradient(135deg, #dbeafe, #eef6ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #365A8C;
+      font-weight: 800;
+      font-size: 2rem;
+    }
+
+    .person h3 {
+      color: #12355b;
+      margin-bottom: 6px;
+    }
+
+    .person .role {
+      color: #365A8C;
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+
+    .person p {
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    .publication-box {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 24px;
+      padding: 34px;
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+      color: #64748b;
+    }
+
+    .contact-panel {
+      background: linear-gradient(135deg, #12355b, #1d4ed8);
+      color: white;
+      border-radius: 32px;
+      padding: 46px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      box-shadow: 0 24px 70px rgba(15, 47, 79, 0.18);
+    }
+
+    .contact-panel h2 {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+
+    .contact-panel p {
+      color: #dbeafe;
+      margin-bottom: 10px;
+    }
+
+    .contact-details {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    footer {
+      background: #0f2f4f;
+      color: #cbd5e1;
+      padding: 34px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .grid-2,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .cards-grid,
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .news-item {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-container {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-logos {
+        gap: 36px;
+      }
+
+      .hero-logos img {
+        max-height: 60px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .section {
+        padding: 65px 0;
+      }
+
+      .hero-inner {
+        padding: 60px 0 90px 0;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .contact-panel {
+        padding: 30px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+    }
+.project-overview{
+
+    margin-top:70px;
+
+    text-align:center;
+}
+
+.project-overview h3{
+
+    color:#12355b;
+
+    font-size:2rem;
+
+    margin-bottom:15px;
+}
+
+.project-overview p{
+
+    max-width:850px;
+
+    margin:0 auto 35px auto;
+
+    color:#64748b;
+}
+
+.project-overview img{
+
+    width:100%;
+
+    max-width:1000px;
+
+    border-radius:16px;
+
+    box-shadow:0 18px 45px rgba(15,47,79,.08);
+}
+ .overview-diagram {
+  margin-top: 42px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.overview-column {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  padding: 30px 26px;
+  box-shadow: 0 14px 35px rgba(15,47,79,.06);
+}
+
+.overview-icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 18px auto;
+  border-radius: 50%;
+  background: #365A8C;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+.overview-column h4 {
+  color: #12355b;
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+.overview-column p {
+  color: #64748b;
+  font-size: .98rem;
+  margin-bottom: 0;
+}
+
+.overview-populations {
+  margin-top: 34px;
+  padding: 18px 24px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  color: #4b5563;
+}
+
+@media (max-width: 900px) {
+  .overview-diagram {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ======== Zdjęcie zespołu ======== */
+
+.team-photo {
+    max-width: 850px;
+    margin: 0 auto 80px auto;
+    text-align: center;
+}
+
+.team-photo img {
+    width: 65%;
+    max-width: 850px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+/* ======== Nowa sekcja Metody ======== */
+
+.methods-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.08fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.methods-list {
+  display: grid;
+  gap: 16px;
+}
+
+.method-card {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 18px;
+  align-items: start;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 22px 24px;
+  box-shadow: 0 10px 28px rgba(15, 47, 79, 0.04);
+}
+
+.method-number {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #365A8C;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.method-card h3 {
+  color: #12355b;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.method-card p {
+  color: #4b5563;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.methods-map {
+  background: #f8fbff;
+  border: 1px solid #cbd8e6;
+  border-radius: 22px;
+  padding: 28px;
+  text-align: center;
+  box-shadow: 0 12px 32px rgba(15, 47, 79, 0.05);
+}
+
+.methods-map h3 {
+  color: #12355b;
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.methods-map p {
+  color: #365A8C;
+  margin-bottom: 22px;
+}
+
+.methods-map img {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.methods-note {
+  margin-top: 28px;
+  padding: 20px 26px;
+  background: #f8fbff;
+  border: 1px solid #cbd8e6;
+  border-radius: 18px;
+  text-align: center;
+  color: #4b5563;
+}
+
+.method-schedule {
+  margin-top: 70px;
+  text-align: center;
+}
+
+.method-schedule h3 {
+  color: #12355b;
+  font-size: 2rem;
+  margin-bottom: 18px;
+}
+
+.schedule-description {
+  max-width: 760px;
+  margin: 0 auto 35px auto;
+  color: #64748b;
+}
+
+.method-schedule img {
+  width: 100%;
+  max-width: 980px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 12px 35px rgba(15,47,79,.10);
+}
+
+@media (max-width: 900px) {
+  .methods-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .method-card {
+    grid-template-columns: 48px 1fr;
+  }
+}
+/* ======== Delikatne animacje przy przewijaniu ======== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAWIGACJA
+  ========================== -->
+  <header>
+    <nav class="nav-container">
+      <a href="#start" class="logo">Międzynarodowy projekt badawczy</a>
+
+  <ul class="nav-links">
+    <li><a href="#o-projekcie">O projekcie</a></li>
+<li><a href="#cele">Cele</a></li>
+<li><a href="#metody">Metody</a></li>
+<li><a href="#badanie">Weź udział</a></li>
+<li><a href="#aktualnosci">Aktualności</a></li>
+<li><a href="#wydarzenia">Wydarzenia</a></li>
+<li><a href="#publikacje">Publikacje</a></li>
+<li><a href="#zespol">Zespół</a></li>
+<li><a href="#kontakt">Kontakt</a></li>
+</ul>
+    </nav>
+  </header>
+
+  <!-- =========================
+       HERO
+  ========================== -->
+  <section id="start" class="hero">
+    <div class="hero-inner">
+
+      <div class="hero-logos">
+    <img src="logo_uwr.png" class="logo-uwr" alt="Logo Uniwersytetu Wrocławskiego">
+
+    <img src="logo%20NCN.jpg" class="logo-ncn" alt="Logo NCN">
+</div>
+
+
+      <h1>Niewidzialne więzi</h1>
+
+      <h2>
+        Społeczne i psychologiczne korelaty kompatybilności
+        antygenów leukocytarnych HLA u partnerów
+      </h2>
+
+      <p class="hero-lead">
+        Interdyscyplinarny projekt badawczy <br> finansowany przez Narodowe Centrum Nauki w ramach konkursu MAESTRO-16
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#badanie" class="btn btn-primary btn-recruitment">Weź udział w badaniu</a>
+        
+
+    </div>
+  </section>
+
+  <!-- =========================
+       O PROJEKCIE
+  ========================== -->
+  <section id="o-projekcie" class="section">
+    <div class="container">
+
+      <div class="section-title">
+        <div class="eyebrow">O projekcie</div>
+        <h2>Dlaczego wybieramy właśnie tego partnera?</h2>
+        <p>
+          Projekt bada biologiczne, społeczne i psychologiczne mechanizmy,
+          które mogą współtworzyć ludzkie przyciąganie, jakość relacji, płodność i zdrowie potomstwa.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="text-block">
+          <p>
+            <strong>Wybór partnera życiowego</strong> to jedna z najważniejszych decyzji
+            w życiu człowieka. Choć zwykle tłumaczymy go emocjami, osobowością,
+            wspólnymi wartościami lub „chemią”, część mechanizmów przyciągania
+            może być zakorzeniona także w biologii.
+          </p>
+
+          <p>
+            Głównym celem projektu jest zbadanie hipotezy dotyczącej korzyści
+            wynikających z różnorodności genetycznej partnerów. Szczególna uwaga
+            poświęcona jest genom <strong>HLA</strong>, czyli ludzkiej wersji
+            Głównego Układu Zgodności Tkankowej MHC, ważnego dla funkcjonowania
+            układu odpornościowego.
+          </p>
+
+          <p>
+            Projekt sprawdza, czy kompatybilność HLA partnerów wiąże się z jakością
+            relacji, satysfakcją ze związku, rodzicielstwem oraz zdrowiem potomstwa
+            w różnych kontekstach kulturowych.
+          </p>
+        </div>
+
+        <div class="info-box">
+          <h3>Kluczowe informacje</h3>
+          <ul>
+            <li><strong>Kierownik projektu:</strong> prof. dr S. Craig Roberts</li>
+            <li><strong>Instytucja realizująca:</strong> Uniwersytet Wrocławski</li>
+            <li><strong>Finansowanie:</strong> Narodowe Centrum Nauki, MAESTRO-16</li>
+            <li><strong>Czas realizacji:</strong> 60 miesięcy</li>
+            <li><strong>Obszar:</strong> psychologia ewolucyjna, antropologia, genetyka</li>
+            <li><strong>Słowa kluczowe:</strong> HLA, MHC, dobór partnera, miłość, jakość relacji</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================
+       CELE
+  ========================== -->
+  <section id="cele" class="section section-alt">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="eyebrow">Cele projektu</div>
+
+      <h2>Czy geny wpływają na wybór partnera?</h2>
+
+      <p>
+        Projekt ma na celu zrozumienie, czy zgodność genów układu zgodności tkankowej (HLA)
+        wpływa na wybór partnera, jakość relacji oraz zdrowie potomstwa.
+        Dzięki badaniom prowadzonym w różnych populacjach świata chcemy odpowiedzieć
+        na jedno z najbardziej fascynujących pytań współczesnej biologii człowieka –
+        jaką rolę odgrywają geny w tworzeniu trwałych związków.
+      </p>
+    </div>
+
+    <div class="cards-grid">
+
+      <div class="card">
+        <div class="card-number">🧬</div>
+
+        <h3>Dobór partnera</h3>
+
+        <p>
+          Sprawdzimy, czy partnerzy dobierają się losowo,
+          czy też zgodność lub różnorodność genów HLA
+          zwiększa prawdopodobieństwo stworzenia związku.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-number">❤️</div>
+
+        <h3>Jakość relacji</h3>
+
+        <p>
+          Zbadamy, czy zgodność genetyczna partnerów
+          wiąże się z satysfakcją ze związku,
+          trwałością relacji oraz dobrostanem partnerów.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-number">👶</div>
+
+        <h3>Zdrowie potomstwa</h3>
+
+        <p>
+          Ocenimy, czy zgodność HLA rodziców
+          ma związek z płodnością,
+          przebiegiem ciąży,
+          liczbą dzieci oraz ich zdrowiem.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-number">🌍</div>
+
+        <h3>Uniwersalność zjawiska</h3>
+
+        <p>
+          Porównamy wyniki uzyskane w Polsce
+          z danymi z kilku populacji pozaeuropejskich,
+          aby sprawdzić,
+          czy obserwowane mechanizmy mają charakter uniwersalny.
+        </p>
+      </div>
+
+    </div>
+
+    <div style="margin-top:60px;text-align:center;max-width:900px;margin-left:auto;margin-right:auto;">
+
+      <h3 style="color:#12355b;font-size:1.8rem;margin-bottom:18px;">
+        Dlaczego to ważne?
+      </h3>
+
+      <p style="color:#64748b;font-size:1.08rem;line-height:1.8;">
+        Dotychczasowe badania dotyczące roli genów HLA w doborze partnera przyniosły
+        niejednoznaczne wyniki i były prowadzone głównie w populacjach zachodnich.
+        Nasz projekt po raz pierwszy połączy analizy genetyczne, psychologiczne
+        i międzykulturowe na tak dużą skalę, co pozwoli lepiej zrozumieć biologiczne
+        i społeczne mechanizmy kształtujące relacje romantyczne.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+  <!-- =========================
+       METODY
+  ========================== -->
+  <section id="metody" class="section">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="eyebrow">Metody</div>
+      <h2>Jak prowadzimy badania?</h2>
+      <p>
+        Badanie łączy podejścia psychologiczne, antropologiczne i genetyczne.
+        Dane zostaną zebrane w Polsce oraz w populacjach pozaeuropejskich.
+      </p>
+    </div>
+
+    <div class="methods-layout">
+
+      <div class="methods-list">
+
+        <div class="method-card">
+          <div class="method-number">1</div>
+          <div>
+            <h3>Kwestionariusz</h3>
+            <p>
+              Określenie charakterystyki psychologicznej, zdrowotnej i społecznej uczestników
+            </p>
+          </div>
+        </div>
+
+        <div class="method-card">
+          <div class="method-number">2</div>
+          <div>
+            <h3>Pobranie próbki śliny</h3>
+            <p>
+              Pobierzemy próbkę śliny do analizy genów układu zgodności
+              tkankowej HLA.
+            </p>
+          </div>
+        </div>
+
+        <div class="method-card">
+          <div class="method-number">3</div>
+          <div>
+            <h3>Badania lokalne</h3>
+            <p>
+              Badania będą prowadzone w kilku populacjach reprezentujących
+              różne konteksty kulturowe i społeczne.
+            </p>
+          </div>
+        </div>
+
+        <div class="method-card">
+          <div class="method-number">4</div>
+          <div>
+            <h3>Porównania międzykulturowe</h3>
+            <p>
+              Porównamy wzorce doboru partnera i jakości relacji w różnych populacjach.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="methods-map">
+        <h3>Miejsca badań</h3>
+        <p>Sześć populacji na kilku kontynentach</p>
+
+        <img src="lokalizacje.jpg" alt="Mapa lokalizacji badawczych">
+      </div>
+
+    </div>
+
+    <div class="methods-note">
+      
+    </div>
+
+    <div class="method-schedule">
+      <h3>Harmonogram realizacji projektu</h3>
+
+      <p class="schedule-description">
+        Projekt został zaplanowany na pięć lat i obejmuje kolejne etapy:
+        przygotowanie badań, rekrutację uczestników, analizy genetyczne,
+        opracowanie wyników oraz publikację rezultatów.
+      </p>
+
+      <img src="harmonogram.png" alt="Harmonogram realizacji projektu">
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================
+       WEŹ UDZIAŁ W BADANIU
+  ========================== -->
+  <section id="badanie" class="section section-alt">
+    <div class="container">
+
+      <div class="section-title">
+        <div class="eyebrow">Rekrutacja</div>
+        <h2>Weź udział w badaniu</h2>
+        <p>
+          Badanie jest skierowane do osób pełnoletnich pozostających w trwałym związku.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="text-block">
+<p>
+            Jeśli razem z partnerką lub partnerem chcecie wziąć udział w wyjątkowym projekcie naukowym, który pomoże lepiej zrozumieć co wpływa na tworzenie i trwałość związków, serdecznie zapraszamy do udziału w tym badaniu. <br> W Polsce badamy pary w kilku lokalizacjach: Wrocław i okolice, Trójmiasto i okolice włącznie z Mierzeją Wiślaną, Szczecin... Napisz do nas koniecznie, aby sprawdzić, czy możemy spotkać się w Twojej lokalizacji! 
+          </p>
+          <p>
+            Poszukujemy heteroseksualnych par, które mają lub planują mieć dzieci.
+
+          <p>
+            Udział w badaniu będzie obejmował wypełnienie krótkiego kwestionariusza (ok. 15-20 minut), w którym zapytamy m.in. o długość związku, liczbę dzieci, satysfakcję z relacji, wybrane aspekty zdrowia oraz podstawowe informacje socjodemograficzne. Następnie pobrana zostanie próbka śliny do analizy genów układu zgodności tkankowej (HLA). Próbki śliny będą zbierane w specjalnych probówkach i przekazywane do laboratorium badań genetycznych w Szkocji. Wszystkie dane będą analizowane wyłącznie w celach naukowych i zgodnie z obowiązującymi zasadami ochrony danych osobowych. 
+          </p>
+
+        </div>
+
+        <div class="info-box">
+          <h3>Najważniejsze informacje</h3>
+          <ul>
+            <li><strong>Status:</strong> rekrutacja w przygotowaniu</li>
+            <li><strong>Forma:</strong> kwestionariusze i wybrane analizy biologiczne</li>
+            <li><strong>Tematyka:</strong> relacje partnerskie, zdrowie, rodzicielstwo, geny HLA i dobór partnera</li>
+            <li><strong>Kontakt:</strong> mail@uwr.edu.pl</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- =========================
+       AKTUALNOŚCI
+  ========================== -->
+  <section id="aktualnosci" class="section section-alt">
+    <div class="container">
+
+      <div class="section-title">
+        <div class="eyebrow">Aktualności</div>
+        <h2>Co dzieje się w projekcie?</h2>
+        <p>
+          Informacje o kolejnych etapach projektu,
+          wyjazdach terenowych, publikacjach i wydarzeniach, pojawią się wkrótce.
+        </p>
+      </div>
+
+      <div class="news-list">
+        <article class="news-item">
+          <div class="news-date">Lipiec 2026</div>
+          <div>
+            <h3>Rozpoczęcie projektu</h3>
+            <p>
+              Projekt „Niewidzialne więzi” rozpoczyna realizację na Uniwersytecie Wrocławskim.
+            </p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <div class="news-date">2026/2027</div>
+          <div>
+            <h3>Przygotowanie badań</h3>
+            <p>
+              Zespół przygotowuje procedury badawcze, materiały dla uczestników
+              oraz organizację kolejnych etapów zbierania danych.
+            </p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <div class="news-date">Wkrótce</div>
+          <div>
+            <h3>Kolejne informacje</h3>
+            <p>
+              W tej sekcji będą publikowane aktualizacje dotyczące postępów projektu.
+            </p>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 
+<!-- =========================
+     WYDARZENIA
+========================== -->
+
+<section id="wydarzenia" class="section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="eyebrow">Wydarzenia</div>
+
+            <h2>Wykłady i popularyzacja nauki</h2>
+
+            <p>
+                Projekt to nie tylko badania naukowe. Ważnym elementem naszej działalności
+                jest również popularyzacja wiedzy oraz dzielenie się wynikami badań
+                z szerokim gronem odbiorców.
+            </p>
+
+        </div>
+
+        <div class="info-box">
+
+            <h3>Zapraszamy na spotkania i wykłady</h3>
+
+            <p>
+                W trakcie realizacji projektu będziemy organizować otwarte wykłady,
+                prelekcje oraz spotkania popularyzujące naukę.
+                Podczas tych wydarzeń opowiemy o biologicznych i psychologicznych
+                mechanizmach doboru partnera, roli genów HLA oraz najnowszych
+                wynikach naszych badań.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>Informacje o pierwszym wydarzeniu zostaną opublikowane wkrótce.</strong>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+  <!-- =========================
+     ZESPÓŁ
+========================== -->
+<section id="zespol" class="section section-alt">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="eyebrow">Zespół</div>
+      <h2>Kto realizuje projekt?</h2>
+      <p>
+        Projekt realizuje międzynarodowy zespół badaczy specjalizujących się w psychologii ewolucyjnej, antropologii biologicznej oraz genetyce.
+      </p>
+    </div>
+
+    <div class="team-photo">
+      <img src="zespol.jpeg" alt="Zespół projektu Niewidzialne więzi">
+    </div>
+
+    <div class="team-grid">
+
+      <div class="person">
+        <h3>prof. S. Craig Roberts</h3>
+        <div class="role">Kierownik projektu</div>
+        <p>Wydział Nauk Przyrodniczych, Uniwersytet w Stirling, Wielka Brytania</p>
+      </div>
+
+<div class="person">
+        <h3>prof. Piotr Sorokowski</h3>
+        <div class="role">Członek zespołu</div>
+        <p>Instytut Psychologii, Uniwersytet Wrocławski</p>
+      </div>
+<div class="person">
+        <h3>prof. Grażyna Jasieńska</h3>
+        <div class="role">Członek zespołu</div>
+        <p>Collegium Medicum Uniwersytet Jagielloński</p>
+      </div>
+
+<div class="person">
+        <h3>prof. Paweł Boski</h3>
+        <div class="role">Członek zespołu</div>
+        <p>Uniwersytet SWPS.</p>
+      </div>
+
+      <div class="person">
+        <h3>dr Colin Moran</h3>
+        <div class="role">Członek zespołu</div>
+        <p>Wydział Nauk o Zdrowiu i Sporcie, Uniwersytet w Stirling, Wielka Brytania</p>
+      </div>
+
+      <div class="person">
+        <h3>prof Jan Havlíček</h3>
+        <div class="role">Członek zespołu</div>
+        <p>Uniwersytet Karola w Pradze, Czechy</p>
+      </div>
+
+      <div class="person">
+        <h3>dr Marta Kowal</h3>
+        <div class="role">Członkini zespołu</div>
+        <p>Instytut Psychologii, Uniwersytet Wrocławski</p>
+      </div>
+
+      <div class="person">
+        <h3>dr Natalia Siekiera</h3>
+        <div class="role">Członkini zespołu</div>
+        <p>Instytut Psychologii, Uniwersytet Wrocławski</p>
+      </div>
+
+      <div class="person">
+        <h3>dr Katarzyna Gałasińska</h3>
+        <div class="role">Członkini zespołu</div>
+        <p>Instytut Psychologii, Uniwersytet Wrocławski</p>
+      </div>
+
+      <div class="person">
+        <h3>mgr Grzegorz Jankiewicz</h3>
+        <div class="role">Członek zespołu</div>
+        <p>Instytut Psychologii, Uniwersytet Wrocławski</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+  <!-- =========================
+       PUBLIKACJE
+  ========================== -->
+  <section id="publikacje" class="section">
+    <div class="container">
+
+      <div class="section-title">
+        <div class="eyebrow">Publikacje</div>
+        <h2>Wyniki projektu</h2>
+        <p>
+          W tej sekcji będą pojawiać się artykuły naukowe, doniesienia konferencyjne
+          i materiały popularyzujące rezultaty badań.
+        </p>
+      </div>
+
+      <div class="publication-box">
+        
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================
+       KONTAKT
+  ========================== -->
+  <section id="kontakt" class="section">
+    <div class="container">
+
+      <div class="contact-panel">
+        <div>
+          <h2>Kontakt</h2>
+          <p>
+            W sprawach dotyczących projektu, współpracy naukowej lub informacji
+            dla uczestników można skontaktować się z zespołem badawczym.
+          </p>
+        </div>
+
+        <div class="contact-details">
+          <p><strong>Uniwersytet Wrocławski</strong></p>
+          <p>Instytut Psychologii</p>
+          <p>ul. Dawida 1, 50-527 Wrocław</p>
+          <p>E-mail: MAIL@uwr.edu.pl</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================
+       STOPKA
+  ========================== -->
+  <footer>
+    <div class="container">
+      <p>
+        &copy; 2026 Niewidzialne więzi | Projekt finansowany przez Narodowe Centrum Nauki w konkursie MAESTRO-16.
+      </p>
+    </div>
+  </footer>
+
+<script>
+  const revealElements = document.querySelectorAll(
+    ".section-title, .card, .method-card, .methods-map, .info-box, .news-item, .person, .publication-box, .contact-panel, .method-schedule, .team-photo"
+  );
+
+  revealElements.forEach((element) => {
+    element.classList.add("reveal");
+  });
+
+  const revealOnScroll = () => {
+    revealElements.forEach((element) => {
+      const elementTop = element.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (elementTop < windowHeight - 80) {
+        element.classList.add("visible");
+      }
+    });
+  };
+
+  window.addEventListener("scroll", revealOnScroll);
+  window.addEventListener("load", revealOnScroll);
+</script>
+</body>
+</html>
